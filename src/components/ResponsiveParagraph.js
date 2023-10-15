@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 
 const ResponsiveParagraph = () => {
   const [text, setText] = useState('');
-  
-  const handleInputChange = (e) => {
-    setText(e.target.value);
-  }
+  const [wordCount, setWordCount] = useState(0);
 
-  const  wordCount = text.trim().split(/\s+/).length;
+  const handleInputChange = (e) => {
+    const inputText = e.target.value;
+    setText(inputText);
+    const count = inputText.trim().split(/\s+/).length;
+    setWordCount(count);
+  }
 
   return (
     <div>
